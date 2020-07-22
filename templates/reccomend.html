@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Reccomendation</h1>
+  {% if songs %}
+  <table class="table table-striped">
+    <tr>
+      <th>Song</th>
+      <th>Artist</th>
+      <th>Album</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for song in songs %}
+      <tr>
+        <td><a href="/quicksearch/{{song.Song}}">{{song.Song}}</a></td>
+        <td><a href="/quicksearch/{{song.Performer}}">{{song.Performer}}</td>
+        <td><a href="/quicksearch/{{song.spotify_track_album}}">{{song.spotify_track_album}}</td>
+        <td><a href="/addtoPlaylist/{{song.SongID}}" class="btn btn-default pull-right">Like</a></td>
+      </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+{% endblock %}
+<!-- <button type="submit" class="btn btn-primary" onclick="/searchresult/{{request.form.Song}}">Submit</button> -->

@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="jumbotron text-center">
+    <h1>Welcome To MSSD </h1>
+    <p class="lead">Your Favorite Music Streaming Service Database</p>
+    {% if session.logged_in == NULL %}
+      <a href="/register" class="btn btn-primary btn-lg">Register</a>
+      <a href="/login" class="btn btn-success btn-lg">Login</a>
+    {% endif %}
+
+    {% if session.logged_in != NULL %}
+    <td><a href="/search" class="btn btn-default">Search Now</a></td>
+    <td><a href="/playlist" class="btn btn-default">Playlists</a></td>
+    {% endif %}
+  </div>
+{% endblock %}
